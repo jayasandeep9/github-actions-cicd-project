@@ -6,12 +6,26 @@ on:
       - main
 
 jobs:
+  #=============
+  #1. --BUILD
+  #=============
   test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name : set up python
+        uses : actions/setup-python@v5
+        with:
+          python-version: 3.8
 
       - name: Show project files
         run: ls
+      
+      - name: Show system information
+        run: |
+          pwd
+          whoami
+          uname -a
+      - 
