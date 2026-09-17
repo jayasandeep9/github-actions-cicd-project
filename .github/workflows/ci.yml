@@ -21,11 +21,13 @@ jobs:
       - name : set up python
         uses : actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: '3.13'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+
 
       - name: Show project files
         run: ls
@@ -34,5 +36,7 @@ jobs:
         run: |
           pwd
           whoami
-          
+      - name: Run tests
+        run: |
+          python -m pytest
       
